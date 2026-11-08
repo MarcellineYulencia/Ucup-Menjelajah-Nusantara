@@ -1,0 +1,137 @@
+/* --- src/styles/CharacterSelection.css --- */
+
+/* Fullscreen Video Background (jika hanya digunakan di sini) */
+.fullscreen-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Container utama Character Selection dan Name Entry */
+/* Sesuaikan posisi dan display yang sebelumnya 'display: none;'
+   karena sekarang dikelola oleh React Router */
+.character-selection-container,
+.name-entry-container {
+    position: relative; /* Agar z-index bekerja relatif terhadap fullscreen-video */
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    color: white; /* Sesuaikan warna teks */
+    margin: 100px auto; /* Untuk memposisikan di tengah */
+    max-width: 600px;
+    width: 90%; /* Responsive */
+}
+
+/* Tampilan awal nameEntry (dikontrol oleh React state) */
+.name-entry-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Animasi transisi ke kiri */
+.slide-left {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+/* Tombol panah navigasi */
+.nav-arrow {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: white; /* Warna panah */
+}
+
+/* Efek hover membesarkan panah */
+.nav-arrow:hover {
+    transform: scale(1.2);
+}
+
+/* Avatar container */
+.character-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.avatar-container {
+    text-align: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transition: transform 0.2s, border 0.3s;
+}
+
+/* Input nama */
+.name-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Ikon edit */
+.edit-icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+/* Posisi Tombol Next */
+.button-container {
+    margin-top: 20px;
+}
+
+/* Animasi fade-in untuk full body karakter */
+.fade-in-element { /* Ganti nama kelas agar tidak bentrok dengan @keyframes fadeIn */
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.full-body-img {
+    /* Posisi ini mungkin perlu disesuaikan di komponen React Anda */
+    /* Tergantung bagaimana Anda menempatkan gambar ini */
+    /* Jika ditempatkan di dalam container, mungkin tidak perlu absolute */
+    position: absolute; /* Jika memang ingin overlay */
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    animation: fadeIn 1s ease-in-out forwards;
+    /* margin-top: -100px; */ /* Mungkin tidak perlu jika posisi diatur dengan flexbox */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0; /* Contoh: di bagian bawah layar */
+    z-index: 0; /* Di bawah elemen lain */
+}
+.name-entry-container h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.name-input-container {
+    margin-bottom: 15px;
+}
+
+#startGame {
+    margin-top: 10px;
+    padding: 10px 30px;
+    font-size: 1.1em;
+}

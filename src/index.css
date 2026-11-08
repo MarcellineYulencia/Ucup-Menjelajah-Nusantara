@@ -1,0 +1,62 @@
+/* --- src/index.css --- */
+
+@font-face {
+  font-family: 'Jujutsu Kaisen';
+  src: url('./font/Jujutsu Kaisen.ttf') format('truetype'); /* Path relatif dari index.css */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    font-family: 'JujutsuKaisen', Arial, sans-serif !important;
+    background-color: #f4f4f4; /* Bisa diubah jika ada video background global */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Penting untuk game agar tidak ada scrollbar browser */
+    height: 100vh;
+    width: 100vw;
+}
+
+/* FADE OVERLAY (untuk transisi antar rute) */
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+  z-index: 9999;
+}
+
+#fade.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Animasi Global (jika digunakan di banyak tempat) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* .hidden { display: none; } (Jika Anda masih ingin menggunakan kelas ini, tetap di sini) */

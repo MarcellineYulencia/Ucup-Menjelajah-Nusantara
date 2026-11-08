@@ -1,0 +1,349 @@
+/* --- Gaya untuk LoadingScreen --- */
+#loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black; /* Atau warna solid sesuai video background */
+  z-index: 1000;
+  transition: opacity 1s ease-out; /* Transisi untuk fade out */
+}
+
+#loadingScreen.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Nonaktifkan interaksi setelah fade out */
+}
+
+#loadingScreen video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* ini penting */
+  z-index: -1;
+}
+
+
+.loading-container {
+  text-align: center;
+  color: white;
+}
+
+.loading-container .logo {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.loading-bar {
+  width: 80%;
+  max-width: 400px;
+  height: 20px;
+  background-color: #555;
+  border-radius: 10px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+
+.loading-bar .progress {
+  height: 100%;
+  background-color: #4CAF50;
+  width: 0%;
+  transition: width 0.3s ease-out;
+}
+
+.btn-start {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  display: inline-block; /* <--- ini dia! Ubah dari none ke inline-block */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.btn-start.show {
+  opacity: 1;
+}
+
+/* --- Gaya untuk CharacterSelection --- */
+#characterSelection {
+  display: none; /* Awalnya tersembunyi, diaktifkan dengan JS */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 900;
+  /* Animasi slideLeft saat berpindah layar */
+  /* Animation diaktifkan dengan class .slide-out di komponen */
+}
+
+#characterSelection.slide-out {
+  animation: slideLeft 0.5s forwards;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.fullscreen-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#characterSelection h1 {
+  margin-bottom: 40px;
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.character-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.avatar-container {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(255,215,0,0.5);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.nav-arrow {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.button-container .btn {
+  padding: 12px 40px;
+  font-size: 1.5em;
+  border-radius: 8px;
+}
+
+/* --- Gaya untuk NameEntry --- */
+#nameEntry {
+  display: none; /* Awalnya tersembunyi */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 950;
+  opacity: 0; /* Mulai dengan tidak terlihat */
+  transition: opacity 0.5s ease-in; /* Transisi saat aktif */
+}
+
+#nameEntry.active {
+  opacity: 1;
+}
+
+#nameEntry h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+.name-input-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#playerName {
+  padding-right: 40px; /* Ruang untuk ikon pensil */
+  font-size: 1.2em;
+  text-align: center;
+  background-color: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 5px;
+}
+
+.edit-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.full-body-img {
+  max-width: 400px;
+  height: auto;
+  margin-top: 20px;
+  opacity: 0; /* Mulai dengan tidak terlihat */
+  transition: opacity 0.5s ease-in; /* Transisi untuk fade-in */
+}
+
+.full-body-img.fade-in {
+  opacity: 1;
+}
+
+/* --- Gaya untuk Transisi Halaman (fade-overlay) --- */
+.fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s;
+  z-index: 1000; /* Pastikan di atas elemen lain */
+}
+
+.fade-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tambahkan gaya global atau reset lainnya yang Anda miliki di style.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Mencegah scroll */
+    background-color: #333; /* Warna fallback */
+}
+
+#gameOverScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  color: white;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInGameOver 1s ease forwards;
+  text-align: center;
+  padding: 20px;
+}
+
+@keyframes fadeInGameOver {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#gameOverScreen h2 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #ff4c4c;
+  text-shadow: 2px 2px 10px #000;
+  animation: pulseRed 1.5s infinite;
+}
+
+@keyframes pulseRed {
+  0% { text-shadow: 0 0 10px #ff4c4c; }
+  50% { text-shadow: 0 0 25px #ff0000; }
+  100% { text-shadow: 0 0 10px #ff4c4c; }
+}
+
+#gameOverScreen p {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  animation: slideInText 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInText {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+#gameOverScreen ul {
+  margin-top: 10px;
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  animation: slideInText 0.5s ease-in-out forwards;
+}
+
+#gameOverScreen ul li {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+
+.start-again-btn {
+  margin-top: 30px;
+  background: linear-gradient(145deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-again-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+}

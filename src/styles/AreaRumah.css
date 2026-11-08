@@ -1,0 +1,94 @@
+.rumah-area-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.rumah-map {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: 2px solid #555;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.rumah-character {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+  transition: top 0.1s linear, left 0.1s linear;
+}
+
+.rumah-activity-zone {
+  position: absolute;
+  background-color: rgba(0, 255, 255, 0.3);
+  border: 2px dashed #00ffff;
+  z-index: 1;
+  border-radius: 6px;
+}
+
+.rumah-controls {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  background: rgba(30, 30, 30, 0.6);
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.rumah-controls button {
+  padding: 8px 14px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #888;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.rumah-controls button:hover {
+  background-color: #444;
+}
+
+.rumah-status-output {
+  margin-top: 12px;
+  color: #fff;
+  background: rgba(20, 20, 20, 0.75);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.rumah-coordinate-display {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 1000;
+}
